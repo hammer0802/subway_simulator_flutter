@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "989868211174",
+    "firebase_url": "https://subway-simulator-flutter-30cd3.firebaseio.com",
+    "project_id": "subway-simulator-flutter-30cd3",
+    "storage_bucket": "subway-simulator-flutter-30cd3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989868211174:android:ea1dac5488adcd66eeb427",
+        "android_client_info": {
+          "package_name": "com.hammerlab.subway_simulator_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989868211174-0o90oth6g74ma2428v2q65vr512hae4j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYHtse7q_B5DrM1rbBFSn_D0Z_eJ3wnvM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989868211174-0o90oth6g74ma2428v2q65vr512hae4j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
