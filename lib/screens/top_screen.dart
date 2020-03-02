@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:subway_simulator_flutter/models/constants.dart';
 import 'package:subway_simulator_flutter/models/enums.dart';
+import 'package:subway_simulator_flutter/screens/edit_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TopScreen extends StatelessWidget {
@@ -20,7 +21,7 @@ class TopScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(kTopAppBarTitle),
-        backgroundColor: Color(0xFF1E7931),
+        backgroundColor: kPrimaryColor,
         actions: <Widget>[
           PopupMenuButton(
             icon: Icon(Icons.menu),
@@ -45,8 +46,10 @@ class TopScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        backgroundColor: Color(0xFFF5B710),
-        onPressed: () {},
+        backgroundColor: kSecondaryColor,
+        onPressed: () {
+          Navigator.pushNamed(context, EditScreen.id);
+        },
       ),
     );
   }
