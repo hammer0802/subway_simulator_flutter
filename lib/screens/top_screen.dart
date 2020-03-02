@@ -7,10 +7,11 @@ import 'package:url_launcher/url_launcher.dart';
 class TopScreen extends StatelessWidget {
   static const String id = 'top_screen';
 
-  void _launchURL(String url) async {
+  Future _launchURL(String url) async {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
+      // ignore: only_throw_errors
       throw 'Could not launch $url';
     }
   }
@@ -23,15 +24,15 @@ class TopScreen extends StatelessWidget {
         title: Text(kTopAppBarTitle),
         backgroundColor: kPrimaryColor,
         actions: <Widget>[
-          PopupMenuButton(
+          PopupMenuButton<dynamic>(
             icon: Icon(Icons.menu),
-            onSelected: (value) {
+            onSelected: (dynamic value) {
               if (value == TopPopupMenuItems.privacyPolicy) {
                 _launchURL(kPrivacyPolicyUrl);
               }
             },
             itemBuilder: (context) => <PopupMenuEntry>[
-              const PopupMenuItem(
+              const PopupMenuItem<dynamic>(
                 value: TopPopupMenuItems.privacyPolicy,
                 child: Text(kPrivacyPolicyButtonText),
               ),
@@ -40,8 +41,9 @@ class TopScreen extends StatelessWidget {
         ],
       ),
       body: ListView(
+        // ignore: prefer_const_literals_to_create_immutables
         children: <Widget>[
-          Text("test"),
+          const Text('test'),
         ],
       ),
       floatingActionButton: FloatingActionButton(

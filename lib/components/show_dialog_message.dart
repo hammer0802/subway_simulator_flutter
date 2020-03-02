@@ -16,7 +16,8 @@ Widget _buildDialog(BuildContext context, String title, String message,
   if (title == null && message == null) {
     throw ArgumentError('titleとmessageのどちらともnullです。どちらかは指定してください。');
   }
-  List<Widget> actions = List();
+  // ignore: omit_local_variable_types, prefer_collection_literals
+  final List<Widget> actions = List();
   if (!isOkOnly) {
     actions.add(
       _dialogButton(
