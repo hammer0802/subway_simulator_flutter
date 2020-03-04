@@ -49,10 +49,7 @@ Widget bottomAppBarText({String text}) {
     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 24),
     child: Text(
       text,
-      style: const TextStyle(
-        color: Colors.white,
-        fontWeight: FontWeight.bold,
-      ),
+      style: kWhiteBoldTextStyle,
     ),
   );
 }
