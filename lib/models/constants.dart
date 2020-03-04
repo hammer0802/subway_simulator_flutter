@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'enums.dart';
+
 // AppBarタイトル
 const String kTopAppBarTitle = 'SUBWAYシミュレーター';
 const String kEditAppBarTitle = 'レシピ編集';
@@ -24,3 +26,12 @@ const TextStyle kTileTitleTextStyle =
     TextStyle(fontWeight: FontWeight.bold, fontSize: 17);
 
 const TextStyle kTileSubTitleTextStyle = TextStyle(fontSize: 12);
+
+// 数量
+const Map<Amount, String> kAmountMap = {
+  Amount.none: 'なし',
+  Amount.little: '少なめ',
+  Amount.normal: '普通',
+  Amount.more: '多め',
+  Amount.max: '上限',
+};
