@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:subway_simulator_flutter/models/constants.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class RecipeTile extends StatelessWidget {
   const RecipeTile(
@@ -23,8 +24,10 @@ class RecipeTile extends StatelessWidget {
         elevation: 5,
         borderRadius: BorderRadius.circular(4),
         child: ListTile(
-          leading: Image(
-            image: NetworkImage(imageUrl),
+          leading: FadeInImage.memoryNetwork(
+            placeholder: kTransparentImage,
+            image: imageUrl,
+            fadeInCurve: Curves.easeInOut,
           ),
           onLongPress: () => longPressCallback,
           onTap: () => tapCallback,
