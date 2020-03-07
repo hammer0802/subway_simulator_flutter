@@ -20,10 +20,8 @@ class TopScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(kTopAppBarTitle),
-        backgroundColor: kPrimaryColor,
         actions: <Widget>[
           PopupMenuButton<dynamic>(
             icon: Icon(Icons.menu),
@@ -63,7 +61,6 @@ class TopScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        backgroundColor: kSecondaryColor,
         onPressed: () {
           Navigator.pushNamed(context, EditScreen.id);
         },

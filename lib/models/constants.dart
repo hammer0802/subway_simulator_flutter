@@ -14,7 +14,7 @@ const String kPrivacyPolicyUrl =
 
 // Color
 const Color kPrimaryColor = Color(0xFF1E7931);
-const Color kSecondaryColor = Color(0xFFF5B710);
+const Color kAccentColor = Color(0xFFF5B710);
 
 // Style
 const TextStyle kWhiteBoldTextStyle = TextStyle(

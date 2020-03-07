@@ -16,11 +16,8 @@ class EditScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(kEditAppBarTitle),
-          backgroundColor: kPrimaryColor,
         ),
-        backgroundColor: Colors.white,
         floatingActionButton: FloatingActionButton.extended(
-          backgroundColor: kSecondaryColor,
           elevation: 4,
           icon: const Icon(Icons.receipt),
           label: const Text('完成'),
@@ -28,7 +25,6 @@ class EditScreen extends StatelessWidget {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
-          color: kPrimaryColor,
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
