@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:subway_simulator_flutter/components/show_dialog_message.dart';
 import 'package:subway_simulator_flutter/models/constants.dart';
 
-class EditScreen extends StatelessWidget {
+class EditScreen extends StatefulWidget {
   static const String id = 'edit_screen';
+
+  @override
+  _EditScreenState createState() => _EditScreenState();
+}
+
+class _EditScreenState extends State<EditScreen> {
+  bool isDressingSelected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +24,27 @@ class EditScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(kEditAppBarTitle),
+          // FIXME : 後々消す
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(AntDesign.menu_fold),
+              onPressed: () {
+                setState(() {
+                  isDressingSelected = !isDressingSelected;
+                });
+              },
+            ),
+          ],
         ),
-        floatingActionButton: FloatingActionButton.extended(
-          elevation: 4,
-          icon: const Icon(Icons.receipt),
-          label: const Text('完成'),
-          onPressed: () {},
+        floatingActionButton: AnimatedOpacity(
+          opacity: isDressingSelected ? 1 : 0,
+          duration: const Duration(milliseconds: 300),
+          child: FloatingActionButton.extended(
+            elevation: 4,
+            icon: const Icon(Icons.receipt),
+            label: const Text('完成'),
+            onPressed: () {},
+          ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
