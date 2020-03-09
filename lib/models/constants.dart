@@ -16,6 +16,9 @@ const String kPrivacyPolicyUrl =
 const Color kPrimaryColor = Color(0xFF1E7931);
 const Color kAccentColor = Color(0xFFF5B710);
 
+// height, width
+const double kFABSize = 56;
+
 // Style
 const TextStyle kWhiteBoldTextStyle = TextStyle(
   color: Colors.white,

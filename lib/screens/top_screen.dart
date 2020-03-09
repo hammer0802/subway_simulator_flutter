@@ -1,3 +1,5 @@
+import 'package:animations/animations.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:subway_simulator_flutter/components/recipe_tile.dart';
 import 'package:subway_simulator_flutter/models/constants.dart';
@@ -59,10 +61,32 @@ class TopScreen extends StatelessWidget {
           )
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          Navigator.pushNamed(context, EditScreen.id);
+      floatingActionButton: OpenContainer(
+        transitionType: ContainerTransitionType.fade,
+        openBuilder: (context, VoidCallback _) {
+          return EditScreen();
+        },
+        closedElevation: 5,
+        closedShape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(kFABSize / 2),
+          ),
+        ),
+        closedColor: kAccentColor,
+        closedBuilder: (context, VoidCallback openContainer) {
+          return InkWell(
+            onTap: openContainer,
+            child: SizedBox(
+              height: kFABSize,
+              width: kFABSize,
+              child: Center(
+                child: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          );
         },
       ),
     );

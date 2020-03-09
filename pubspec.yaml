@@ -18,6 +18,7 @@ dependencies:
   pedantic_mono: ^1.8.0
   transparent_image: ^1.0.0
   flutter_icons: ^1.0.0+1
+  animations: ^1.0.0+5
 
 dev_dependencies:
   flutter_test:
