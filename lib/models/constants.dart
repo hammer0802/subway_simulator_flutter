@@ -30,6 +30,9 @@ const TextStyle kTileTitleTextStyle =
 
 const TextStyle kTileSubTitleTextStyle = TextStyle(fontSize: 12);
 
+const TextStyle kEditTitleTextStyle =
+    TextStyle(fontWeight: FontWeight.bold, fontSize: 17, color: kPrimaryColor);
+
 // 数量
 const Map<Amount, String> kAmountMap = {
   Amount.none: 'なし',
@@ -38,3 +41,6 @@ const Map<Amount, String> kAmountMap = {
   Amount.more: '多め',
   Amount.max: '上限',
 };
+
+//padding
+const double kItemPadding = 8;
