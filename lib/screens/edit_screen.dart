@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:subway_simulator_flutter/components/reusable_card.dart';
+import 'package:subway_simulator_flutter/components/reusable_grid_card.dart';
 import 'package:subway_simulator_flutter/components/show_dialog_message.dart';
 import 'package:subway_simulator_flutter/models/constants.dart';
 
@@ -30,6 +30,7 @@ class _EditScreenState extends State<EditScreen> {
           onPressed: () {},
         ),
         body: ListView(
+          shrinkWrap: true,
           children: <Widget>[
             const Padding(
               padding: EdgeInsets.all(kItemPadding),
@@ -44,266 +45,66 @@ class _EditScreenState extends State<EditScreen> {
               height: kItemPadding * 2,
             ),
             editTitle('サンドウィッチ'),
-            Wrap(
-              alignment: WrapAlignment.center,
-              children: <ReusableCard>[
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-_H5SoT1hkzQ/XmbgSlzJYtI/AAAAAAABXys/yy2dszxTd8IdZFqlSfmE95j4FWC_8J8eQCNcBGAsYHQ/s1600/youkai_amabie_mimi.png',
-                  title: 'test1',
-                ),
-                ReusableCard(
+            GridView.count(
+              shrinkWrap: true,
+              childAspectRatio: 0.7,
+              crossAxisCount: 4,
+              physics: const NeverScrollableScrollPhysics(),
+              children: <Widget>[
+                ReusableGridCard(
                   colour: Colors.white,
                   onPress: () {},
                   imageUrl:
                       'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test2',
+                  title: 'test',
+                  width: MediaQuery.of(context).size.width,
                 ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-_H5SoT1hkzQ/XmbgSlzJYtI/AAAAAAABXys/yy2dszxTd8IdZFqlSfmE95j4FWC_8J8eQCNcBGAsYHQ/s1600/youkai_amabie_mimi.png',
-                  title: 'test1',
-                ),
-                ReusableCard(
+                ReusableGridCard(
                   colour: Colors.white,
                   onPress: () {},
                   imageUrl:
                       'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test2',
+                  title: 'test',
+                  width: MediaQuery.of(context).size.width,
                 ),
+                ReusableGridCard(
+                  colour: Colors.white,
+                  onPress: () {},
+                  imageUrl:
+                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
+                  title: 'test',
+                  width: MediaQuery.of(context).size.width,
+                ),
+                ReusableGridCard(
+                  colour: Colors.white,
+                  onPress: () {},
+                  imageUrl:
+                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
+                  title: 'test',
+                  width: MediaQuery.of(context).size.width,
+                )
               ],
             ),
             const SizedBox(
               height: kItemPadding * 2,
             ),
             editTitle('ブレッド'),
-            Wrap(
-              alignment: WrapAlignment.center,
-              children: <ReusableCard>[
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-_H5SoT1hkzQ/XmbgSlzJYtI/AAAAAAABXys/yy2dszxTd8IdZFqlSfmE95j4FWC_8J8eQCNcBGAsYHQ/s1600/youkai_amabie_mimi.png',
-                  title: 'test1',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test2',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-_H5SoT1hkzQ/XmbgSlzJYtI/AAAAAAABXys/yy2dszxTd8IdZFqlSfmE95j4FWC_8J8eQCNcBGAsYHQ/s1600/youkai_amabie_mimi.png',
-                  title: 'test1',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test2',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-_H5SoT1hkzQ/XmbgSlzJYtI/AAAAAAABXys/yy2dszxTd8IdZFqlSfmE95j4FWC_8J8eQCNcBGAsYHQ/s1600/youkai_amabie_mimi.png',
-                  title: 'test1',
-                ),
-              ],
-            ),
             const SizedBox(
               height: kItemPadding * 2,
             ),
             editTitle('トッピング'),
-            Wrap(
-              alignment: WrapAlignment.center,
-              children: <ReusableCard>[
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test2',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-_H5SoT1hkzQ/XmbgSlzJYtI/AAAAAAABXys/yy2dszxTd8IdZFqlSfmE95j4FWC_8J8eQCNcBGAsYHQ/s1600/youkai_amabie_mimi.png',
-                  title: 'test1',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test2',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-_H5SoT1hkzQ/XmbgSlzJYtI/AAAAAAABXys/yy2dszxTd8IdZFqlSfmE95j4FWC_8J8eQCNcBGAsYHQ/s1600/youkai_amabie_mimi.png',
-                  title: 'test1',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test2',
-                ),
-              ],
-            ),
             const SizedBox(
               height: kItemPadding * 2,
             ),
             editTitle('野菜'),
-            Wrap(
-              alignment: WrapAlignment.center,
-              children: <ReusableCard>[
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-_H5SoT1hkzQ/XmbgSlzJYtI/AAAAAAABXys/yy2dszxTd8IdZFqlSfmE95j4FWC_8J8eQCNcBGAsYHQ/s1600/youkai_amabie_mimi.png',
-                  title: 'test1',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test2',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-_H5SoT1hkzQ/XmbgSlzJYtI/AAAAAAABXys/yy2dszxTd8IdZFqlSfmE95j4FWC_8J8eQCNcBGAsYHQ/s1600/youkai_amabie_mimi.png',
-                  title: 'test1',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test2',
-                ),
-              ],
-            ),
             const SizedBox(
               height: kItemPadding * 2,
             ),
             editTitle('アクセント野菜'),
-            Wrap(
-              alignment: WrapAlignment.center,
-              children: <ReusableCard>[
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-_H5SoT1hkzQ/XmbgSlzJYtI/AAAAAAABXys/yy2dszxTd8IdZFqlSfmE95j4FWC_8J8eQCNcBGAsYHQ/s1600/youkai_amabie_mimi.png',
-                  title: 'test1',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test2',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-_H5SoT1hkzQ/XmbgSlzJYtI/AAAAAAABXys/yy2dszxTd8IdZFqlSfmE95j4FWC_8J8eQCNcBGAsYHQ/s1600/youkai_amabie_mimi.png',
-                  title: 'test1',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test2',
-                ),
-              ],
-            ),
             const SizedBox(
               height: kItemPadding * 2,
             ),
             editTitle('ドレッシング'),
-            Wrap(
-              alignment: WrapAlignment.center,
-              children: <ReusableCard>[
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-_H5SoT1hkzQ/XmbgSlzJYtI/AAAAAAABXys/yy2dszxTd8IdZFqlSfmE95j4FWC_8J8eQCNcBGAsYHQ/s1600/youkai_amabie_mimi.png',
-                  title: 'test1',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test2',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-_H5SoT1hkzQ/XmbgSlzJYtI/AAAAAAABXys/yy2dszxTd8IdZFqlSfmE95j4FWC_8J8eQCNcBGAsYHQ/s1600/youkai_amabie_mimi.png',
-                  title: 'test1',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test2',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-_H5SoT1hkzQ/XmbgSlzJYtI/AAAAAAABXys/yy2dszxTd8IdZFqlSfmE95j4FWC_8J8eQCNcBGAsYHQ/s1600/youkai_amabie_mimi.png',
-                  title: 'test1',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test2',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-_H5SoT1hkzQ/XmbgSlzJYtI/AAAAAAABXys/yy2dszxTd8IdZFqlSfmE95j4FWC_8J8eQCNcBGAsYHQ/s1600/youkai_amabie_mimi.png',
-                  title: 'test1',
-                ),
-                ReusableCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test2',
-                ),
-              ],
-            ),
           ],
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

@@ -2,16 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:subway_simulator_flutter/models/constants.dart';
 
-class ReusableCard extends StatelessWidget {
-  const ReusableCard(
+class ReusableGridCard extends StatelessWidget {
+  const ReusableGridCard(
       {@required this.colour,
       @required this.onPress,
       @required this.imageUrl,
-      @required this.title});
+      @required this.title,
+      @required this.width});
   final Color colour;
   final Function onPress;
   final String imageUrl;
   final String title;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +25,7 @@ class ReusableCard extends StatelessWidget {
           children: <Widget>[
             SizedBox(
               child: Image.network(imageUrl),
-              width: 80,
-              height: 80,
+              width: width,
             ),
             const SizedBox(
               height: kItemPadding,
