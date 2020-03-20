@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:subway_simulator_flutter/models/constants.dart';
 import 'package:transparent_image/transparent_image.dart';
@@ -24,10 +25,15 @@ class RecipeTile extends StatelessWidget {
         elevation: 5,
         borderRadius: BorderRadius.circular(4),
         child: ListTile(
-          leading: FadeInImage.memoryNetwork(
-            placeholder: kTransparentImage,
-            image: imageUrl,
-            fadeInCurve: Curves.easeInOut,
+          leading: CachedNetworkImage(
+            placeholder: (context, url) => const CircularProgressIndicator(
+              backgroundColor: kPrimaryColor,
+            ),
+            imageUrl: imageUrl,
+            errorWidget: (context, url, error) => Icon(
+              Icons.error,
+              color: kAccentColor,
+            ),
           ),
           onLongPress: () => longPressCallback,
           onTap: () => tapCallback,

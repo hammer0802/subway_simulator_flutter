@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:subway_simulator_flutter/models/constants.dart';
@@ -27,7 +28,17 @@ class ReusableGridCard extends StatelessWidget {
           child: Column(
             children: <Widget>[
               SizedBox(
-                child: Image.network(imageUrl),
+                child: CachedNetworkImage(
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(
+                    backgroundColor: kPrimaryColor,
+                  ),
+                  imageUrl: imageUrl,
+                  errorWidget: (context, url, error) => Icon(
+                    Icons.error,
+                    color: kAccentColor,
+                  ),
+                ),
                 width: width,
                 height: 80,
               ),
