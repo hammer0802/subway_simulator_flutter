@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:subway_simulator_flutter/components/reusable_grid_card.dart';
-import 'package:subway_simulator_flutter/components/show_dialog_message.dart';
+import 'package:subway_simulator_flutter/ui/components/reusable_grid_card.dart';
+import 'package:subway_simulator_flutter/ui/components/show_dialog_message.dart';
 import 'package:subway_simulator_flutter/models/constants.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+final _firestore = Firestore.instance;
 
 class EditScreen extends StatefulWidget {
   static const String id = 'edit_screen';
@@ -45,66 +48,38 @@ class _EditScreenState extends State<EditScreen> {
               height: kItemPadding * 2,
             ),
             editTitle('サンドウィッチ'),
-            GridView.count(
-              shrinkWrap: true,
-              childAspectRatio: 0.7,
-              crossAxisCount: 4,
-              physics: const NeverScrollableScrollPhysics(),
-              children: <Widget>[
-                ReusableGridCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test',
-                  width: MediaQuery.of(context).size.width,
-                ),
-                ReusableGridCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test',
-                  width: MediaQuery.of(context).size.width,
-                ),
-                ReusableGridCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test',
-                  width: MediaQuery.of(context).size.width,
-                ),
-                ReusableGridCard(
-                  colour: Colors.white,
-                  onPress: () {},
-                  imageUrl:
-                      'https://1.bp.blogspot.com/-q0vC8T9XRSg/XiOwuwtXJLI/AAAAAAABXHk/clxgC9d2E8YrWluWTw0NFYP832mEMdN-ACNcBGAsYHQ/s1600/virus_corona.png',
-                  title: 'test',
-                  width: MediaQuery.of(context).size.width,
-                )
-              ],
-            ),
+            const GridStream(path: 'sandwiches'),
             const SizedBox(
               height: kItemPadding * 2,
             ),
             editTitle('ブレッド'),
+            const GridStream(path: 'breads'),
             const SizedBox(
               height: kItemPadding * 2,
             ),
             editTitle('トッピング'),
+            const GridStream(path: 'toppings'),
             const SizedBox(
               height: kItemPadding * 2,
             ),
             editTitle('野菜'),
+            const GridStream(
+              path: 'vegetables',
+              isVegetable: true,
+            ),
             const SizedBox(
               height: kItemPadding * 2,
             ),
             editTitle('アクセント野菜'),
+            const GridStream(
+              path: 'vegetables',
+              isAccent: true,
+            ),
             const SizedBox(
               height: kItemPadding * 2,
             ),
             editTitle('ドレッシング'),
+            const GridStream(path: 'dressings'),
           ],
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -143,4 +118,66 @@ Widget bottomAppBarText({String text}) {
       style: kWhiteBoldTextStyle,
     ),
   );
+}
+
+class GridStream extends StatelessWidget {
+  const GridStream({
+    @required this.path,
+    this.isVegetable = false,
+    this.isAccent = false,
+  });
+
+  final String path;
+  final bool isVegetable;
+  final bool isAccent;
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+      stream: _firestore.collection(path).snapshots(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return Center(
+            child: CircularProgressIndicator(
+              backgroundColor: kPrimaryColor,
+            ),
+          );
+        }
+
+        List<DocumentSnapshot> documents;
+
+        if (isVegetable) {
+          documents = snapshot.data.documents
+              .where((d) => d.data['isAccent'] != true)
+              .toList();
+        } else if (isAccent) {
+          documents = snapshot.data.documents
+              .where((d) => d.data['isAccent'] == true)
+              .toList();
+        } else {
+          documents = snapshot.data.documents;
+        }
+        final reusableGridCards = <ReusableGridCard>[];
+        for (final document in documents) {
+          final name = document.data['name'].toString();
+          final imageUrl = document.data['imageUrl'].toString();
+
+          final reusableGridCard = ReusableGridCard(
+            onPress: () {},
+            imageUrl: imageUrl,
+            title: name,
+            width: MediaQuery.of(context).size.width,
+          );
+          reusableGridCards.add(reusableGridCard);
+        }
+        return GridView.count(
+          shrinkWrap: true,
+          childAspectRatio: 0.6,
+          crossAxisCount: 4,
+          physics: const NeverScrollableScrollPhysics(),
+          children: reusableGridCards,
+        );
+      },
+    );
+  }
 }

@@ -1,10 +1,9 @@
 import 'package:animations/animations.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:subway_simulator_flutter/components/recipe_tile.dart';
+import 'package:subway_simulator_flutter/ui/components/recipe_tile.dart';
 import 'package:subway_simulator_flutter/models/constants.dart';
 import 'package:subway_simulator_flutter/models/enums.dart';
-import 'package:subway_simulator_flutter/screens/edit_screen.dart';
+import 'package:subway_simulator_flutter/ui/screens/edit_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TopScreen extends StatelessWidget {
