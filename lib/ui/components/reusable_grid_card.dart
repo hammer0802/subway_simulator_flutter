@@ -20,10 +20,10 @@ class ReusableGridCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: colour,
-      child: Padding(
-        padding: const EdgeInsets.all(4),
-        child: InkWell(
-          onTap: () => onPress,
+      child: InkWell(
+        onTap: () => onPress,
+        child: Padding(
+          padding: const EdgeInsets.all(4),
           child: Column(
             children: <Widget>[
               SizedBox(
