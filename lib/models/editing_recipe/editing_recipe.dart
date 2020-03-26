@@ -7,6 +7,7 @@ import 'package:subway_simulator_flutter/models/recipe_items/vegetable.dart';
 
 class EditingRecipe {
   EditingRecipe({
+    this.name,
     this.sandwich,
     this.isFootLong,
     this.bread,

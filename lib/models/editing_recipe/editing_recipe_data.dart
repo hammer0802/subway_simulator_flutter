@@ -8,7 +8,25 @@ import 'package:subway_simulator_flutter/models/recipe_items/vegetable.dart';
 import '../enums.dart';
 
 class EditingRecipeData extends ChangeNotifier {
-  final EditingRecipe _editingRecipe = EditingRecipe();
+  final EditingRecipe _editingRecipe = EditingRecipe(vegetables: {});
+
+  EditingRecipe get editingRecipe => _editingRecipe;
+
+  bool get isCompleted {
+    if (_editingRecipe.name.isNotEmpty &&
+        _editingRecipe.sandwich != null &&
+        _editingRecipe.bread != null &&
+        _editingRecipe.dressings.isNotEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void setName(String name) {
+    _editingRecipe.name = name;
+    notifyListeners();
+  }
 
   void setSandwich(Sandwich sandwich) {
     _editingRecipe.sandwich = sandwich;
